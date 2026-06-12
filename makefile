@@ -1,8 +1,8 @@
 qA:
-	python3 questaoA.py
+	venv/bin/python3 questaoA.py
 
 qB:
-	python3 questaoB.py
+	venv/bin/python3 questaoB.py
 
 q19:
 	python3 questao19.py
