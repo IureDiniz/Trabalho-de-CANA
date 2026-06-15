@@ -5,9 +5,6 @@ class Arvore:
     self.filho = []
     self.pai = None
 
-
-
-
   def adicionar(self, pai, valor):
     novoNo = Arvore(valor)
 
@@ -117,8 +114,7 @@ class Arvore:
 
     return p
 
-
-# Iterativo
+# Criação da árvore
 raiz = Arvore(10)
 
 raiz.adicionar(10, 5)
@@ -132,7 +128,10 @@ raiz.adicionar(6, 8)
 
 raiz.adicionar(8, 9)
 
-print(raiz.valor)
+print('\n########Criação da árvore#########')
+print(raiz.valor, ' é a raiz da árvore')
+
+print()
 
 for no in raiz.filho:
   print(no.pai.valor, ' é pai de ', no.valor)
@@ -153,6 +152,21 @@ for no in raiz.filho[1].filho[2].filho:
   print(no.pai.valor, ' é pai de ', no.valor)
 
 print()
+
+# Iterativo
+print('\n########Funções recursivas#########')
+
+
+print('O numero de nós é: ', raiz.contaNoRecursivo(0))
+
+print('A soma de todos os nós é: ', raiz.somaNoRecursivo(0))
+
+v = 9
+print(f'A profundidade de {v} é: {raiz.profundidadeNoRecursivo(v, -1)}')
+
+
+
+print('\n########Funções iterativas#########')
 
 print('O numero de nós é: ', raiz.contaNo())
 
@@ -161,46 +175,3 @@ print('A soma de todos os nós é: ', raiz.somaNo())
 v = 9
 print(f'A profundidade de {v} é: {raiz.profundidadeNo(v)}')
 
-
-# Recrusivo
-raiz = Arvore(10)
-
-raiz.adicionar(10, 5)
-raiz.adicionar(10, 6)
-
-raiz.adicionar(5, 15)
-
-raiz.adicionar(6, 6)
-raiz.adicionar(6, 7)
-raiz.adicionar(6, 8)
-
-raiz.adicionar(8, 9)
-
-print(raiz.valor)
-
-for no in raiz.filho:
-  print(no.pai.valor, ' é pai de ', no.valor)
-
-print()
-
-for no in raiz.filho[0].filho:
-  print(no.pai.valor, ' é pai de ', no.valor)
-
-print()
-
-for no in raiz.filho[1].filho:
-  print(no.pai.valor, ' é pai de ', no.valor)
-
-print()
-
-for no in raiz.filho[1].filho[2].filho:
-  print(no.pai.valor, ' é pai de ', no.valor)
-
-print()
-
-print('O numero de nós é: ', raiz.contaNoRecursivo(0))
-
-print('A soma de todos os nós é: ', raiz.somaNoRecursivo(0))
-
-v = 9
-print(f'A profundidade de {v} é: {raiz.profundidadeNoRecursivo(v, -1)}')
