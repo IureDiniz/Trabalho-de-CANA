@@ -7,33 +7,14 @@ class Item():
 
 def imprimir_lista(inicio):
     atual = inicio
+    i = 0
     while atual:
-        print(atual.dado, end = ", ")
+        print(atual.dado, end = " ")
         atual = atual.prox
+        i += 1
+        if i%10 == 0:
+            print("")
     print("None")
-
-def inserir_no_inicio(inicio, dado):
-    novoItem = Item(dado)
-    novoItem.prox = inicio
-    if inicio:
-        inicio.ant = novoItem
-    return novoItem
-
-def inserir_apos_item(item, dado):
-    novoItem = Item(dado)
-    novoItem.prox = item.prox
-    novoItem.ant = item
-    if item.prox:
-        item.prox.ant = novoItem
-    item.prox = novoItem
-
-def inserir_antes_item(item, dado):
-    novoItem = Item(dado)
-    novoItem.prox = item
-    novoItem.ant = item.ant
-    if item.ant:
-        item.ant.prox = novoItem
-    item.ant = novoItem
 
 def inserir_no_fim(inicio, dado):
     novoItem = Item(dado)
@@ -50,7 +31,8 @@ def inserir_no_fim(inicio, dado):
 
 def inicializar_lista():
     inicio = Item(0)
-    for i in range(1, 20):
+    tam = int(input("Digite o tamanho da lista: "))
+    for i in range(1, tam):
         inserir_no_fim(inicio, i)
     return inicio
 
