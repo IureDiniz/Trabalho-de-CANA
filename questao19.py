@@ -32,7 +32,7 @@ def inserir_no_fim(inicio, dado):
 def inicializar_lista():
     inicio = Item(0)
     tam = int(input("Digite o tamanho da lista: "))
-    for i in range(1, tam):
+    for i in range(1, tam+1):
         inserir_no_fim(inicio, i)
     return inicio
 
