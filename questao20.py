@@ -64,6 +64,18 @@ class Arvore:
     p = no.subir(p)
 
     return p
+  
+  def profundideArvoreRecursivo(self):
+        if len(self.filho) == 0:
+            return 0
+
+        maior = 0
+        for no in self.filho:
+            pFilho = no.profundideArvoreRecursivo()
+            if pFilho > maior:
+                maior = pFilho
+
+        return 1 + maior
 
 
   # Iterativo
@@ -111,6 +123,17 @@ class Arvore:
     while no is not None:
       p += 1
       no = no.pai
+
+    return p
+
+  def profundideArvore(self):
+    p = 0
+    arvore = [self]
+
+    while arvore:
+        no = arvore.pop()
+        p = max(p, self.profundidadeNo(no.valor))
+        arvore.extend(no.filho)
 
     return p
 
@@ -164,6 +187,8 @@ print('A soma de todos os nós é: ', raiz.somaNoRecursivo(0))
 v = 9
 print(f'A profundidade de {v} é: {raiz.profundidadeNoRecursivo(v, -1)}')
 
+print(f'A profundidade da árvore é: {raiz.profundideArvoreRecursivo()}')
+
 
 
 print('\n########Funções iterativas#########')
@@ -175,3 +200,4 @@ print('A soma de todos os nós é: ', raiz.somaNo())
 v = 9
 print(f'A profundidade de {v} é: {raiz.profundidadeNo(v)}')
 
+print(f'A profundidade da árvore é: {raiz.profundideArvore()}')
