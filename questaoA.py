@@ -343,5 +343,3 @@ for label in legend.get_texts():
 for label in legend.get_lines():
     label.set_linewidth(1.5)
 plt.savefig("imagens/questaoA/3-OrdenacoesMenoresTempos.png")
-
-
